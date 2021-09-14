@@ -5,12 +5,13 @@
 }
 body {
     padding: 0 !important;
+    background: #e7e7e7 !important;
 }
 header {
     width: 100%;
     margin: 0 !important;
     padding: 1rem 0 0 0  !important;
-    background: linear-gradient(to bottom,cornflowerblue, rgb(224, 224, 226) 35%,cornflowerblue) ;
+    background: #fff159 ;
     position: sticky !important;
 }
  header img {
@@ -30,15 +31,15 @@ h1 span {
     font-family: cursive !important;
 }
 nav.navbar{
-    background: linear-gradient(to bottom, #808487,#cccccc, #808487) !important; 
+    background: #fff159 !important; 
     width: 100%;
-    border: 2px solid #808487 !important;
+    border-top: 2px solid #808487 !important;
     font-weight: bold;
     height: 30%;
 }
 .nav-link.active{
     background: linear-gradient(to bottom, rgb(150, 150, 150), white 70%);
-    border-radius: 10px;
+    border-radius: 20px;
     color: cornflowerblue !important;
 }
 .nav-link {
@@ -68,11 +69,6 @@ p{
     margin: 0 !important;
     padding: 2rem 1rem 0 2rem !important;
     width: 100%;
-}
-footer{
-    min-height: 10vh;
-    width: 100%;
-
 }
 .row.row-cols-sm-1{
     margin-left: 1rem;
@@ -123,19 +119,21 @@ h2{
 }
 
 footer{
-    background: linear-gradient(to bottom, #cccccc, #808487, #808487) ;
-    color: #3DB2FF !important;
+    min-height: 10vh;
+    width: 100%;
+    background: #e7e7e7 ;
+    border-top: 2px solid #808487 !important;
     margin: 0 !important;
    /*  min-height: 4.3rem; */
     padding: 0 !important;
     margin-top: 1.5rem !important;
 }
 #pie{
-    border-right: 2px solid rgb(255, 243, 243) !important;
+    border-right: 2px solid black !important;
 }
 p#pie, p.pie{
     font-size: 1.5rem !important;
-    color: white;
+    color: black;
     padding-bottom: 1rem !important;
     /* margin-bottom: 1rem !important; */
 }
