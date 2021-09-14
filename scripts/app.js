@@ -46,7 +46,7 @@ fetch("https://apipetshop.herokuapp.com/api/articulos")
     .catch(err => console.error(err.message))
 
 
-
+////////////FUNCION PARA PINTAR CARDS//////////////////////
 const imagenCards = data => {
     data.forEach(producto => {
         templateCard.querySelector("h5").textContent = producto.nombre
@@ -61,14 +61,14 @@ const imagenCards = data => {
 }
 
 
-
+//////////////BOTON AGREGAR AL CARRITO///////////////
 const agregarAlCarrito = e => {
     if (e.target.classList.contains("btn-primary")) {
         setCarrito(e.target.parentElement)
     }
     e.stopPropagation()
 }
-
+///////////////////AGREGAR PRODUCTOS AL CARRITO////////////
 const setCarrito = objeto => {
     const producto = {
         id: objeto.querySelector(".btn-primary").dataset.id,
@@ -82,6 +82,7 @@ const setCarrito = objeto => {
     carrito[producto.id] = { ...producto }
     mostrarCarrito()
 }
+////////////////FUNCION PINTAR CUERPO TABLA CARRITO///////////////////
 const mostrarCarrito = () => {
     items.innerHTML = ''
     Object.values(carrito).forEach(producto => {
@@ -97,6 +98,7 @@ const mostrarCarrito = () => {
     mostrarFooter()
     localStorage.setItem('carrito', JSON.stringify(carrito))
 }
+////////////////BOTONES CARRITO(AUMENTAR O DISMINUIR CANTIDAD)///////////////
 const btnAccion = e => {
     if (e.target.classList.contains('btn-info')) {
         const producto = carrito[e.target.dataset.id]
@@ -117,7 +119,7 @@ const btnAccion = e => {
 items.addEventListener('click', (e) => {
     btnAccion(e)
 })
-
+//////////////////FUNCION PINTAR FOOTER TABLA CARRITO/////////
 const mostrarFooter = () => {
     footer.innerHTML = ''
     if (Object.keys(carrito).length === 0) {
@@ -139,6 +141,7 @@ const mostrarFooter = () => {
         mostrarCarrito()
     })
 }
+/////////////////EVENTO SUBMIT//////////////
 form.addEventListener('submit', (e) => {
     e.preventDefault()
 })
