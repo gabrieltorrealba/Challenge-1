@@ -308,3 +308,8 @@ p{
 .bannerUno i{
    font-size: 4rem;
 }
+.bannerDos{
+    width: 100%;
+    display: flex;
+    
+}
