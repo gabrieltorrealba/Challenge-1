@@ -3,7 +3,7 @@ const cards = document.getElementById("cards")
 const items = document.getElementById("items")
 const footer = document.getElementById("footer")
 const juguetesPaginas = document.getElementById("juguetes")
-const form = document.querySelector("form")
+const form = document.getElementById("form");
 const btnContacto = document.getElementById("staticBackdropcontacto")
 
 // Brian cuenca js start
@@ -113,16 +113,6 @@ const imagenCards = data => {
     showAndHide(cards)
 }
 
-// function mouseEnter(e) {
-//     console.log(e.target)
-// }
-//   function mouseLeave(e) {
-//       console.log(e.target)
-//     e.target.style.display = "none";
-//   }
-// cards.addEventListener("mouseenter", mouseEnter)
-//   cards.addEventListener("mouseleave", mouseLeave) 
-
 
 //////////////BOTON AGREGAR AL CARRITO///////////////
 const agregarAlCarrito = e => {
@@ -204,12 +194,7 @@ const mostrarFooter = () => {
         mostrarCarrito()
     })
 }
-/////////////////EVENTO SUBMIT//////////////
-const formFunctions = () => {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault()
-    })
-}
+
 
 // Brian Cuenca js call functions start
 
@@ -227,6 +212,96 @@ function showAndHide(div) {
         })
     })
 }
+
+/////////////////EVENTO SUBMIT//////////////
+const textVerify = (e, inputsValue) => {
+    // si se comparte la misma funcion se debe identificar donde guardar cada valor dependiendo del id del elemento
+    switch(e.target.id) {
+        case "inputNombre":
+            inputsValue.nombre = e.target.value
+        break;
+        case "inputRaza":
+            inputsValue.mascota = e.target.value
+        break;
+    }
+
+    // verificacion caracter por caracter
+    let verifyText = /[a-zA-Z]+/g;
+    let verifyNotText = /\W+|[^a-zA-Z]/g
+    let firstNotText = inputsValue.nombre.match(verifyNotText)
+    let result = inputsValue.nombre.match(verifyText)
+
+    if (firstNotText != null) {
+        e.target.classList.add("inputErr")
+    } else {
+        e.target.classList.remove("inputErr")
+    }
+
+    if (result !== null) {
+        e.target.classList.add("inputErr")
+        if (result[0].length !== inputsValue.nombre.length) {
+            e.target.classList.add("inputErr")
+        } else {
+            e.target.classList.remove("inputErr")
+        }
+    }
+}
+
+const verifyNumber = (e, inputsValue) => {
+    inputsValue.nombre = e.target.value
+    let verifyNumber = /\d+/g
+    let verifyNotNumber = /^[a-zA-Z]+|\W/g
+    let firstNotNumber = inputsValue.nombre.match(verifyNotNumber)
+    let resultNumber = inputsValue.nombre.match(verifyNumber)
+
+    if(firstNotNumber !== null) {
+        e.target.classList.add("inputErr")
+    } else {
+        e.target.classList.remove("inputErr")
+    }
+
+    if (resultNumber[0].length !== inputsValue.nombre.length) {
+        e.target.classList.add("inputErr")
+    } else {
+        e.target.classList.remove("inputErr")
+    }
+}
+const formFunctions = () => {
+    const btnSubmit = document.getElementById("btn-contacto")
+    btnSubmit.disabled = true;
+
+    let inputsValue = {
+        nombre: "",
+        telefono: "",
+        email: "",
+        mascota: "",
+        sexo: "",
+        edad: "",
+        consulta: ""
+    }
+
+    form.addEventListener('input', (e) => {
+        switch (e.target.id) {
+            case "inputNombre":
+                textVerify(e, inputsValue)
+                break;
+            case "inputTelefono":
+                verifyNumber(e, inputsValue)
+                break;
+            case "inputEmail":
+
+                break;
+            case "inputRaza":
+                textVerify(e, inputsValue)
+                break;
+            case "query":
+
+                break;
+        }
+        console.log(inputsValue)
+    })
+}
+
 // se inicia condicionales para las direcciones
 switch (currentPage) {
     case "index":

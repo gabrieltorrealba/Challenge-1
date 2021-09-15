@@ -314,6 +314,9 @@ p{
 }
 
 /* Brian Cuenca styles start */
+
+/* index */
+
 .image-effect {
     max-width: 100%;
     height: 70vh;
@@ -331,5 +334,12 @@ p{
 
 .j-c {
     justify-content: center;
+}
+
+/* concato inputs */
+
+.inputErr {
+    background-color: rgb(235, 107, 149)!important;
+    color: white!important;
 }
 /* Brian Cuenca styles end */

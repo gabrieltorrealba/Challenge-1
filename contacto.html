@@ -46,41 +46,41 @@
     </header>
     <main class="row container-fluid justify-content-center">
       <!-- FORMULARIO -->
-      <form class="row g-3 col-8 ">
+      <form class="row g-3 col-8 "  id="form">
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Nombre:</label>
-          <input type="text" class="form-control" id="inputEmail4">
+          <input type="text" class="form-control" id="inputNombre">
         </div>
         <div class="col-md-6">
           <label for="inputPassword4" class="form-label">Telefono:</label>
-          <input type="tel" class="form-control" id="inputPassword4">
+          <input type="tel" class="form-control" id="inputTelefono">
         </div>
         <div class="col-12">
           <label for="inputAddress" class="form-label">Correo electronico:</label>
-          <input type="email" class="form-control" id="inputAddress" placeholder="ejemplo@ejemplo.com">
+          <input type="email" class="form-control" id="inputEmail" placeholder="ejemplo@ejemplo.com">
         </div>
         <div class="col-md-4">
           <label for="inputCity" class="form-label">Tipo de mascota:</label>
-          <input type="text" class="form-control" placeholder="perro/gato/otro" id="inputCity">
+          <input type="text" class="form-control" placeholder="perro/gato/otro" id="inputMascota">
         </div>
         <div class="col-md-2">
           <label for="inputState" class="form-label">Sexo:</label>
-          <select id="inputState" class="form-select">
+          <select id="inputGenero" class="form-select">
             <option selected>Macho</option>
             <option>Hembra</option>
           </select>
         </div>
         <div class="col-md-3">
           <label for="inputZip" class="form-label">Edad:</label>
-          <input type="number" placeholder="En meses" class="form-control" id="inputedad">
+          <input type="number" placeholder="En meses" class="form-control" id="inputEdad">
         </div>
         <div class="col-md-3">
           <label for="inputZip" class="form-label">Raza:</label>
-          <input type="text" class="form-control" id="inputZip">
+          <input type="text" class="form-control" id="inputRaza">
         </div>
         <div class="mb-3">
           <label for="exampleFormControlTextarea1" class="form-label">Dejanos tu consulta:</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea class="form-control" id="query" rows="3"></textarea>
         </div>
         <!-- Button MODAL SUBMIT -->
 <button type="button" id="btn-contacto" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropcontacto">
