@@ -12,10 +12,10 @@ const select = document.getElementById("select-precio")
 // inicio sequencia de identificacion de paginas
 let url = window.document.URL
 // buscar coincidencias con regExp
-let reg = /\b[index|contacto|farmacia|juguetes]+\b/g // numeros de caracteres: index = 5, contacto & farmacia & juguetes = 8
+let reg = /\/$|[index|contacto|farmacia|juguetes]+\b/g // encontrara una coincidencia con el patron para identificar el objetivo
 // obtener la pagina actual
 let page = url.match(reg) // resultado/output: se identificara la pagina que coincida con el patron del regExp
-let currentPage = page[0]
+let currentPage = page[4]
 
 // funciones para cada pagina
 const indexFunctions = () => {
@@ -128,19 +128,19 @@ const imagenCards = data => {
     })
     cards.appendChild(fragment)
     showAndHide(cards)
-    select.addEventListener("change", (e)=>{
+    select.addEventListener("change", (e) => {
         if (e.target.value === "todos") {
-            data = data.sort((a,b)=>{
+            data = data.sort((a, b) => {
                 if (a._id < b._id) {
-                  return -1  
+                    return -1
                 }
                 if (a._id > b._id) {
-                    return 1  
-                  } return 0
+                    return 1
+                } return 0
             })
             mostrar(data)
         }
-        
+
         if (e.target.value === "menor") {
             console.log(data)
             data = data.sort((a, b) => {
@@ -409,7 +409,7 @@ const formFunctions = () => {
                 break;
         }
 
-        if(inputsValue.nombreCasilla && inputsValue.telCasilla && inputsValue.mailCasiila && inputsValue.consulta !== "") {
+        if (inputsValue.nombreCasilla && inputsValue.telCasilla && inputsValue.mailCasiila && inputsValue.consulta !== "") {
             btnSubmit.disabled = false;
         }
     })
@@ -418,6 +418,9 @@ const formFunctions = () => {
 // se inicia condicionales para las direcciones
 switch (currentPage) {
     case "index":
+        indexFunctions()
+        break;
+    case "/":
         indexFunctions()
         break;
     case "contacto":
