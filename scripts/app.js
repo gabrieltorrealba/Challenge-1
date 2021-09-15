@@ -92,16 +92,16 @@ fetch("https://apipetshop.herokuapp.com/api/articulos")
         datos = data.response
         farmacia = datos.filter(i => i.tipo === "Medicamento")
         juguetes = datos.filter(i => i.tipo === "Juguete")
-
+        
         if (cards) {
             farmaciaPagina ? imagenCards(farmacia) : imagenCards(juguetes)
-
+            
             cards.addEventListener("click", e => {
                 agregarAlCarrito(e)
             })
         }
 
-
+        
 
 
         if (localStorage.getItem('carrito')) {
@@ -112,13 +112,12 @@ fetch("https://apipetshop.herokuapp.com/api/articulos")
     .catch(err => console.error(err.message))
 
 
-
+   
 ////////////FUNCION PARA PINTAR CARDS//////////////////////
 const imagenCards = data => {
     data.forEach(producto => {
         templateCard.querySelector("h5").textContent = producto.nombre
         templateCard.querySelector(".p").textContent = producto.precio
-        producto.precio < 5 ? templateCard.querySelector(".ultimas").innerHTML=`<p class="bg-danger">Ultimas unidades</p>` :
         templateCard.querySelector(".cardDescripcion").textContent = producto.descripcion
         templateCard.querySelector("img").setAttribute("src", producto.imagen)
         templateCard.querySelector(".btn-primary").dataset.id = producto._id
@@ -143,7 +142,7 @@ const imagenCards = data => {
         
         if (e.target.value === "menor") {
             console.log(data)
-            data = data.sort((a, b) => {
+           data = data.sort((a,b)=>{
                 if (a.precio < b.precio) {
                     return -1
                 }
@@ -155,7 +154,7 @@ const imagenCards = data => {
         }
         if (e.target.value === "mayor") {
             console.log(data)
-            data = data.sort((a, b) => {
+           data = data.sort((a,b)=>{
                 if (a.precio < b.precio) {
                     return 1
                 }
@@ -167,12 +166,12 @@ const imagenCards = data => {
         }
         console.log(e.target.value)
     })
-
-
+    
+   
 }
 
 function mostrar(data) {
-    cards.innerHTML = ""
+    cards.innerHTML=""
     data.forEach(producto => {
         templateCard.querySelector("h5").textContent = producto.nombre
         templateCard.querySelector(".p").textContent = producto.precio
@@ -186,7 +185,7 @@ function mostrar(data) {
     cards.appendChild(fragment)
     showAndHide(cards)
 }
-
+ 
 
 
 //////////////BOTON AGREGAR AL CARRITO///////////////
@@ -297,7 +296,7 @@ const textVerify = (e, inputsValue) => {
             inputsValue.nombre = e.target.value
             break;
         case "inputRaza":
-            inputsValue.raza = e.target.value
+            inputsValue.mascota = e.target.value
             break;
     }
 
@@ -317,20 +316,18 @@ const textVerify = (e, inputsValue) => {
         e.target.classList.add("inputErr")
         if (result[0].length !== inputsValue.nombre.length) {
             e.target.classList.add("inputErr")
-            inputsValue.nombreCasilla = false
         } else {
             e.target.classList.remove("inputErr")
-            inputsValue.nombreCasilla = true
         }
     }
 }
 
 const verifyNumber = (e, inputsValue) => {
-    inputsValue.telefono = e.target.value
-    let verifyNumbers = /\d+/g
-    let verifyNotText = /^[a-zA-Z]+|\W/g
-    let firstNotNumber = inputsValue.telefono.match(verifyNotText)
-    let resultNumber = inputsValue.telefono.match(verifyNumbers)
+    inputsValue.nombre = e.target.value
+    let verifyNumber = /\d+/g
+    let verifyNotNumber = /^[a-zA-Z]+|\W/g
+    let firstNotNumber = inputsValue.nombre.match(verifyNotNumber)
+    let resultNumber = inputsValue.nombre.match(verifyNumber)
 
     if (firstNotNumber !== null) {
         e.target.classList.add("inputErr")
@@ -338,12 +335,10 @@ const verifyNumber = (e, inputsValue) => {
         e.target.classList.remove("inputErr")
     }
 
-    if (resultNumber[0].length !== inputsValue.telefono.length) {
+    if (resultNumber[0].length !== inputsValue.nombre.length) {
         e.target.classList.add("inputErr")
-        inputsValue.telCasilla = false
     } else {
         e.target.classList.remove("inputErr")
-        inputsValue.telCasilla = true
     }
 }
 
@@ -352,12 +347,10 @@ const verifyEmail = (e, inputsValue) => {
     let verifyEmails = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
     let email = inputsValue.email.match(verifyEmails)
 
-    if (email === null) {
+    if(email === null) {
         e.target.classList.add("inputErr")
-        inputsValue.mailCasiila = false
     } else {
         e.target.classList.remove("inputErr")
-        inputsValue.mailCasiila = true
     }
 
 }
@@ -370,13 +363,10 @@ const formFunctions = () => {
         nombre: "",
         telefono: "",
         email: "",
-        raza: "",
-        genero: "",
+        mascota: "",
+        sexo: "",
         edad: "",
-        consulta: "",
-        nombreCasilla: false,
-        telCasilla: false,
-        mailCasiila: false
+        consulta: ""
     }
 
     form.addEventListener('input', (e) => {
@@ -393,20 +383,11 @@ const formFunctions = () => {
             case "inputRaza":
                 textVerify(e, inputsValue)
                 break;
-            case "inputGenero":
-                inputsValue.genero = e.target.value
-                break;
-            case "inputEdad":
-                inputsValue.edad = e.target.value
-                break;
             case "query":
-                inputsValue.consulta = e.target.value
+
                 break;
         }
-
-        if(inputsValue.nombreCasilla && inputsValue.telCasilla && inputsValue.mailCasiila && inputsValue.consulta !== "") {
-            btnSubmit.disabled = false;
-        }
+        console.log(inputsValue)
     })
 }
 
