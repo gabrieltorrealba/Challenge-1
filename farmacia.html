@@ -18,7 +18,6 @@
     <img src="./assest/logo_dog.png" alt="logo" class="col-3 col-lg-1">
     <img src="./assest/logotipo.png" id="logfarmacia" alt="">
     <div class="icons">
-
       <div><i class="bi bi-instagram"></i></div>
       <div><i class="bi bi-facebook"></i></div>
       <div> <i class="bi bi-twitter"></i></div>
@@ -50,8 +49,8 @@
             </li>
           </ul>
           <!-- BOTON CARRITO -->
-          <button type="button" id="btn-modal" class="btn  btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            <img id="carrito" src="./assest/carrito.png" alt="carrito"><span class="badge bg-danger">0</span>
+          <button type="button" class="btn btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <img id="carrito" src="./assest/carrito.png" alt="carrito"> <span class="badge bg-danger">0</span>
           </button>
         </div>
       </div>
@@ -62,8 +61,15 @@
       <h1>Farmacia</h1>
       <h3 class="col-12 nosotros">Contamos con productos de primera calidad para el cuidado de tu mascota. Pronto
         estaremos incorporando más productos!</h3>
+        <!-- filtros -->
+    <select id="select-precio" class="form-select" size="3" aria-label="size 3 select example">
+      <option selected value="todos">Ordenar por precio:</option>
+      <option value="menor">Menor precio</option>
+      <option value="mayor">Mayor precio</option>
+    </select>
       <div class="row" id="cards"></div>
     </div>
+    
     <!-- MOSTRAR CARDS -->
     <div class="container" id="container2">
       <template id="template-card">
