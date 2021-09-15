@@ -8,6 +8,7 @@
   <title>Franco Pet-Shop Contacto</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
   <link rel="stylesheet" href="./styles/styles.css">
   <link rel="shortcut icon" href="./assest/favicon.png">
 </head>
@@ -15,7 +16,13 @@
 <body id="farmacia" class="container-fluid">
   <header class="row col-12 container-fluid justify-content-center align-items-center">
     <img src="./assest/logo_dog.png" alt="logo" class="col-3 col-lg-1">
-    <h1 class="col-6 col-lg-4"><span>Franco</span> Pet-Shop</h1>
+    <img src="./assest/logotipo.png" id="logfarmacia" alt="">
+    <div class="icons">
+
+      <div><i class="bi bi-instagram"></i></div>
+      <div><i class="bi bi-facebook"></i></div>
+      <div> <i class="bi bi-twitter"></i></div>
+    </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -31,7 +38,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
-                Secciones
+                Tienda
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item active" href="#">Farmacia</a></li>
@@ -52,22 +59,24 @@
   </header>
   <main id="app" class="row">
     <div class="container" id="container1">
-      <h2>Farmacia</h2>
-      <p class="col-12 nosotros">Contamos con productos de primera calidad para el cuidado de tu mascota. Pronto estaremos incorporando más productos!</p>
+      <h1>Farmacia</h1>
+      <h3 class="col-12 nosotros">Contamos con productos de primera calidad para el cuidado de tu mascota. Pronto
+        estaremos incorporando más productos!</h3>
       <div class="row" id="cards"></div>
     </div>
     <!-- MOSTRAR CARDS -->
     <div class="container" id="container2">
       <template id="template-card">
-        <div class="col-12 col-md-6 col-lg-4 g-4" >
+        <div class="col-12 col-md-6 col-lg-4 g-4">
           <div class="col" id="cardsVenta">
             <div class="card">
               <img src="" alt="" class="card-img-top align-self-center" style="height: 8rem; width: 8rem;">
-              <div  class="card-body">
+              <div class="card-body">
                 <h5>Titulo</h5>
                 <p class="cardDescripcion"></p>
-                <p class="cardTemple">Precio: $<span class="p"> Precio</span></p>
-                <p class="cardTemple">Stock: <span class="stock">1</span> <span class="unidades">Unidades disponibles</span> </p>
+                <p class="cardTemple">Precio: <span class="pesos">$</span><span class="p"> Precio</span></p>
+                <p class="cardTemple">Stock: <span class="stock">1</span> <span class="unidades">Unidades
+                    disponibles</span> </p>
                 <button class="btn btn-primary col-12">Añadir al carrito</button>
               </div>
             </div>
@@ -116,8 +125,8 @@
                 <td>cafe</td>
                 <td>1</td>
                 <td>
-                  <button class="btn btn-info btn-sm col-5">+</button>
-                  <button class="btn btn-danger btn-sm col-5">-</button>
+                  <button id="btn-mas" class="btn btn-info btn-sm col-5">+</button>
+                  <button id="btn-menos" class="btn btn-danger btn-sm col-5">-</button>
                 </td>
                 <td class="font-weigth-bold">$<span>500</span></td>
               </tr>
@@ -129,13 +138,10 @@
           </div>
         </div>
       </div>
-      
-      
-      
     </div>
-
-
   </main>
+  <!-- tooltip -->
+  <i class="bi bi-whatsapp" id="btn-wapp"></i>
 
   <footer class="row justify-content-center">
     <p id="pie" class="col-5 col-lg-4 text-end">&#174; Gabriel Torrealba</p>

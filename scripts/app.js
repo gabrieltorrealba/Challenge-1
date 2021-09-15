@@ -270,7 +270,13 @@ const verifyNumber = (e, inputsValue) => {
 const verifyEmail = (e, inputsValue) => {
     inputsValue.email = e.target.value;
     let verifyEmails = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
-    console.log(inputsValue.email.match(verifyEmails))
+    let email = inputsValue.email.match(verifyEmails)
+
+    if(email === null) {
+        e.target.classList.add("inputErr")
+    } else {
+        e.target.classList.remove("inputErr")
+    }
 
 }
 
