@@ -15,7 +15,7 @@ let url = window.document.URL
 let reg = /\b[index|contacto|farmacia|juguetes]+\b/g // numeros de caracteres: index = 5, contacto & farmacia & juguetes = 8
 // obtener la pagina actual
 let page = url.match(reg) // resultado/output: se identificara la pagina que coincida con el patron del regExp
-let currentPage = page[0]
+let currentPage = page[1]
 
 // funciones para cada pagina
 const indexFunctions = () => {
