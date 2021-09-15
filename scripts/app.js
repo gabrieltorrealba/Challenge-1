@@ -73,19 +73,7 @@ let farmacia = []
 let juguetes = []
 let parametro = farmacia ? `${farmacia}` : `${juguetes}`
 
-/* select.addEventListener("change", (e)=>{
-    if (e.target.value === "menor") {
-       datos = datos.sort((a,b)=>{
-            if (a.precio < b.precio) {
-                return -1
-            }
-            if (a.precio > b.precio) {
-                return 1
-            } return 0
-        })
-    }
-    console.log(e.target.value)
-}) */
+
 
 fetch("https://apipetshop.herokuapp.com/api/articulos")
     .then(res => res.json())

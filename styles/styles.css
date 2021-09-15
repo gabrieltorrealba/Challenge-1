@@ -37,10 +37,7 @@ nav.navbar{
     font-weight: bold;
     height: 30%;
 }
-/* .nav-link.active{
-    background: none;
-    color: cornflowerblue !important;
-} */
+
 .nav-link {
     padding-left: .5rem !important;
     width: 10rem !important;
@@ -436,4 +433,10 @@ p.texto{
 #logo-principal{
     max-width: 150px;
     min-width: 100px;    
+}
+.navbar-toggler{
+    background-color: var(--main-color-primary2) ;
+    transition: none;
+    border: 2px solid black;
+
 }
