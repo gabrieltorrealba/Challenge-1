@@ -118,6 +118,7 @@ const imagenCards = data => {
     data.forEach(producto => {
         templateCard.querySelector("h5").textContent = producto.nombre
         templateCard.querySelector(".p").textContent = producto.precio
+        producto.precio < 5 ? templateCard.querySelector(".ultimas").innerHTML=`<p class="bg-danger">Ultimas unidades</p>` :
         templateCard.querySelector(".cardDescripcion").textContent = producto.descripcion
         templateCard.querySelector("img").setAttribute("src", producto.imagen)
         templateCard.querySelector(".btn-primary").dataset.id = producto._id
@@ -270,11 +271,6 @@ const mostrarFooter = () => {
 }
 
 
-/* var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
- */
 
 // Brian Cuenca js call functions start
 
