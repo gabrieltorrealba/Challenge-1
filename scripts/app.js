@@ -20,7 +20,7 @@ let currentPage = page[4]
 // funciones para cada pagina
 const indexFunctions = () => {
     const image = document.getElementById("image");
-    let dirImg = ["../assest/bunny.jpg", "../assest/cat-1.jpg", "../assest/dog-1.jpg", "../assest/dog-2.jpg", "../assest/cat-2.jpg"]
+    let dirImg = ["../assest/bunny.png", "../assest/cat-1.png", "../assest/dog-1.png", "../assest/dog-2.png", "../assest/cat-2.png"]
 
     let i = 0;
     image.style.backgroundImage = `url("${dirImg[i]}")`;
