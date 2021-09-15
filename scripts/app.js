@@ -270,6 +270,12 @@ const mostrarFooter = () => {
 }
 
 
+/* var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+ */
+
 // Brian Cuenca js call functions start
 
 function showAndHide(div) {
