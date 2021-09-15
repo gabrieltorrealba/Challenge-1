@@ -73,19 +73,7 @@ let farmacia = []
 let juguetes = []
 let parametro = farmacia ? `${farmacia}` : `${juguetes}`
 
-/* select.addEventListener("change", (e)=>{
-    if (e.target.value === "menor") {
-       datos = datos.sort((a,b)=>{
-            if (a.precio < b.precio) {
-                return -1
-            }
-            if (a.precio > b.precio) {
-                return 1
-            } return 0
-        })
-    }
-    console.log(e.target.value)
-}) */
+
 
 fetch("https://apipetshop.herokuapp.com/api/articulos")
     .then(res => res.json())
@@ -271,11 +259,6 @@ const mostrarFooter = () => {
 }
 
 
-/* var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
- */
 
 // Brian Cuenca js call functions start
 
@@ -302,7 +285,7 @@ const textVerify = (e, inputsValue) => {
             inputsValue.nombre = e.target.value
             break;
         case "inputRaza":
-            inputsValue.raza = e.target.value
+            inputsValue.mascota = e.target.value
             break;
     }
 
@@ -322,20 +305,18 @@ const textVerify = (e, inputsValue) => {
         e.target.classList.add("inputErr")
         if (result[0].length !== inputsValue.nombre.length) {
             e.target.classList.add("inputErr")
-            inputsValue.nombreCasilla = false
         } else {
             e.target.classList.remove("inputErr")
-            inputsValue.nombreCasilla = true
         }
     }
 }
 
 const verifyNumber = (e, inputsValue) => {
-    inputsValue.telefono = e.target.value
-    let verifyNumbers = /\d+/g
-    let verifyNotText = /^[a-zA-Z]+|\W/g
-    let firstNotNumber = inputsValue.telefono.match(verifyNotText)
-    let resultNumber = inputsValue.telefono.match(verifyNumbers)
+    inputsValue.nombre = e.target.value
+    let verifyNumber = /\d+/g
+    let verifyNotNumber = /^[a-zA-Z]+|\W/g
+    let firstNotNumber = inputsValue.nombre.match(verifyNotNumber)
+    let resultNumber = inputsValue.nombre.match(verifyNumber)
 
     if (firstNotNumber !== null) {
         e.target.classList.add("inputErr")
@@ -343,12 +324,10 @@ const verifyNumber = (e, inputsValue) => {
         e.target.classList.remove("inputErr")
     }
 
-    if (resultNumber[0].length !== inputsValue.telefono.length) {
+    if (resultNumber[0].length !== inputsValue.nombre.length) {
         e.target.classList.add("inputErr")
-        inputsValue.telCasilla = false
     } else {
         e.target.classList.remove("inputErr")
-        inputsValue.telCasilla = true
     }
 }
 
@@ -359,29 +338,24 @@ const verifyEmail = (e, inputsValue) => {
 
     if (email === null) {
         e.target.classList.add("inputErr")
-        inputsValue.mailCasiila = false
     } else {
         e.target.classList.remove("inputErr")
-        inputsValue.mailCasiila = true
     }
 
 }
 
 const formFunctions = () => {
     const btnSubmit = document.getElementById("btn-contacto")
-    /* btnSubmit.disabled = true; */
+    btnSubmit.disabled = true;
 
     let inputsValue = {
         nombre: "",
         telefono: "",
         email: "",
-        raza: "",
-        genero: "",
+        mascota: "",
+        sexo: "",
         edad: "",
-        consulta: "",
-        nombreCasilla: false,
-        telCasilla: false,
-        mailCasiila: false
+        consulta: ""
     }
 
     form.addEventListener('input', (e) => {
@@ -398,20 +372,14 @@ const formFunctions = () => {
             case "inputRaza":
                 textVerify(e, inputsValue)
                 break;
-            case "inputGenero":
-                inputsValue.genero = e.target.value
-                break;
-            case "inputEdad":
-                inputsValue.edad = e.target.value
-                break;
             case "query":
                 inputsValue.consulta = e.target.value
                 break;
         }
-
         if (inputsValue.nombreCasilla && inputsValue.telCasilla && inputsValue.mailCasiila && inputsValue.consulta !== "") {
             btnSubmit.disabled = false;
         }
+        console.log(inputsValue)
     })
 }
 
