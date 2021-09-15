@@ -15,7 +15,7 @@
 
 <body class="container-fluid">
   <header class="row col-12 container-fluid justify-content-center align-items-center">
-    <img src="./assest/logo_dog.png" alt="logo" class="col-3 col-lg-1">
+    <img src="./assest/logo_dog.png" id="logo-principal" alt="logo" class="col-3 col-lg-1">
     <img src="./assest/logotipo.png" id="logfarmacia" alt="">
     <div class="icons">
       <!-- Luz: Agregue los iconos -->
@@ -24,40 +24,36 @@
       <div> <i class="bi bi-twitter"></i></div>
     </div>
     <!-- <h1 class="col-6 col-lg-4"><span>Franco</span> Pet-Shop</h1> -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Inicio</a>
-            </li>
-
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Tienda
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="farmacia.html">Farmacia</a></li>
-                <li><a class="dropdown-item" href="juguetes.html">Juguetes</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contacto.html">Contactenos</a>
-            </li>
-          </ul>
-          <!-- BOTON CARRITO -->
-          <button type="button" class="btn btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-            <img id="carrito" src="./assest/carrito.png" alt="carrito"> <span class="badge bg-danger">0</span>
-          </button>
-        </div>
-      </div>
-    </nav>
+    
   </header>
+  <nav class="navbar navbar-expand-lg sticky-top">
+    <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tienda</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="farmacia.html">Farmacia</a></li>
+                    <li><a class="dropdown-item" href="juguetes.html">Juguetes</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="contacto.html">Contacto</a>
+            </li>
+        </ul>
+    </div>
+    <button type="button" class="btn btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        <img id="carrito" src="./assest/carrito.png" alt="carrito">
+        <span class="badge bg-danger">0</span>
+    </button>
+    </div>
+  </nav>
   <div class="image-effect m-0-a flex-col-center j-c" id="image"></div>
   <main class="container-fluid">
 

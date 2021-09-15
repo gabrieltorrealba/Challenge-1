@@ -358,7 +358,7 @@ const verifyEmail = (e, inputsValue) => {
 
 const formFunctions = () => {
     const btnSubmit = document.getElementById("btn-contacto")
-    /* btnSubmit.disabled = true; */
+    btnSubmit.disabled = false;
 
     let inputsValue = {
         nombre: "",
