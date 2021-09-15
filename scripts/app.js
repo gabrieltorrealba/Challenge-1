@@ -26,6 +26,7 @@ const indexFunctions = () => {
     image.style.backgroundImage = `url("${dirImg[i]}")`;
     image.style.backgroundSize = "cover";
     image.style.backgroundPosition = "center";
+    image.style.backgroundRepeat = "no-repeat"
     image.style.transition = "all 1s ease";
 
     setInterval(() => {
