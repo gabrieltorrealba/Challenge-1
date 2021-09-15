@@ -340,13 +340,15 @@ p{
  }
  .quienes-somos{
      display: flex;
+     flex-wrap: wrap;
      justify-content: center;
      align-items: center;
-     flex-basis: 70%;
+     flex-basis: 100%;
  }
  .quienes-somos p{
      text-align: left;
      font-size: 1.15rem;
+     max-width:70%;
  }
 .quienes-somos img{
     display: flex;
@@ -355,6 +357,8 @@ p{
 .quienes-somos h2{
     font-size: 2rem!important;
     border-left: 5px solid var(--main-color-primary3);
+    display: inline-block;
+    max-width: 300px;
 }
 #btn-wapp{
     position: fixed;
@@ -394,6 +398,9 @@ p{
     color: black;
     border: none;
 }
+p.texto{
+    text-indent: 2.5rem;
+}
 /* Brian Cuenca styles start */
 
 .image-effect {
@@ -422,3 +429,11 @@ p{
     color: white!important;
 }
 /* Brian Cuenca styles end */
+#logfarmacia{
+    max-width: 250px;
+    min-width: 200px;    
+}
+#logo-principal{
+    max-width: 150px;
+    min-width: 100px;    
+}
