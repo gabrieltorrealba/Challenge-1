@@ -216,13 +216,13 @@ function showAndHide(div) {
 /////////////////EVENTO SUBMIT//////////////
 const textVerify = (e, inputsValue) => {
     // si se comparte la misma funcion se debe identificar donde guardar cada valor dependiendo del id del elemento
-    switch(e.target.id) {
+    switch (e.target.id) {
         case "inputNombre":
             inputsValue.nombre = e.target.value
-        break;
+            break;
         case "inputRaza":
             inputsValue.mascota = e.target.value
-        break;
+            break;
     }
 
     // verificacion caracter por caracter
@@ -254,7 +254,7 @@ const verifyNumber = (e, inputsValue) => {
     let firstNotNumber = inputsValue.nombre.match(verifyNotNumber)
     let resultNumber = inputsValue.nombre.match(verifyNumber)
 
-    if(firstNotNumber !== null) {
+    if (firstNotNumber !== null) {
         e.target.classList.add("inputErr")
     } else {
         e.target.classList.remove("inputErr")
@@ -266,6 +266,14 @@ const verifyNumber = (e, inputsValue) => {
         e.target.classList.remove("inputErr")
     }
 }
+
+const verifyEmail = (e, inputsValue) => {
+    inputsValue.email = e.target.value;
+    let verifyEmails = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    console.log(inputsValue.email.match(verifyEmails))
+
+}
+
 const formFunctions = () => {
     const btnSubmit = document.getElementById("btn-contacto")
     btnSubmit.disabled = true;
@@ -289,7 +297,7 @@ const formFunctions = () => {
                 verifyNumber(e, inputsValue)
                 break;
             case "inputEmail":
-
+                verifyEmail(e, inputsValue)
                 break;
             case "inputRaza":
                 textVerify(e, inputsValue)
