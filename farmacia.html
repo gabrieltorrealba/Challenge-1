@@ -61,8 +61,15 @@
     <div class="container" id="container1">
       <h2>Farmacia</h2>
       <p class="col-12 nosotros">Contamos con productos de primera calidad para el cuidado de tu mascota. Pronto estaremos incorporando más productos!</p>
+      <!-- filtros -->
+    <select id="select-precio" class="form-select" size="3" aria-label="size 3 select example">
+      <option selected value="todos">Ordenar por precio:</option>
+      <option value="menor">Menor precio</option>
+      <option value="mayor">Mayor precio</option>
+    </select>
       <div class="row" id="cards"></div>
     </div>
+    
     <!-- MOSTRAR CARDS -->
     <div class="container" id="container2">
       <template id="template-card">

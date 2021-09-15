@@ -5,6 +5,7 @@ const footer = document.getElementById("footer")
 const juguetesPaginas = document.getElementById("juguetes")
 const form = document.querySelector("form")
 const btnContacto = document.getElementById("staticBackdropcontacto")
+const select = document.getElementById("select-precio")
 
 // Brian cuenca js start
 
@@ -71,21 +72,36 @@ let farmacia = []
 let juguetes = []
 let parametro = farmacia ? `${farmacia}` : `${juguetes}`
 
+/* select.addEventListener("change", (e)=>{
+    if (e.target.value === "menor") {
+       datos = datos.sort((a,b)=>{
+            if (a.precio < b.precio) {
+                return -1
+            }
+            if (a.precio > b.precio) {
+                return 1
+            } return 0
+        })
+    }
+    console.log(e.target.value)
+}) */
+
 fetch("https://apipetshop.herokuapp.com/api/articulos")
     .then(res => res.json())
     .then(data => {
         datos = data.response
         farmacia = datos.filter(i => i.tipo === "Medicamento")
         juguetes = datos.filter(i => i.tipo === "Juguete")
+        
         if (cards) {
             farmaciaPagina ? imagenCards(farmacia) : imagenCards(juguetes)
-
+            
             cards.addEventListener("click", e => {
                 agregarAlCarrito(e)
             })
         }
 
-
+        
 
 
         if (localStorage.getItem('carrito')) {
@@ -96,8 +112,43 @@ fetch("https://apipetshop.herokuapp.com/api/articulos")
     .catch(err => console.error(err.message))
 
 
+   
 ////////////FUNCION PARA PINTAR CARDS//////////////////////
 const imagenCards = data => {
+    select.addEventListener("change", (e)=>{
+        
+        if (e.target.value === "menor") {
+            console.log(data)
+           data = data.sort((a,b)=>{
+                if (a.precio < b.precio) {
+                    return -1
+                }
+                if (a.precio > b.precio) {
+                    return 1
+                } return 0
+            })
+            mostrar(data)
+        }
+        if (e.target.value === "mayor") {
+            console.log(data)
+           data = data.sort((a,b)=>{
+                if (a.precio < b.precio) {
+                    return 1
+                }
+                if (a.precio > b.precio) {
+                    return -1
+                } return 0
+            })
+            mostrar(data)
+        }
+        console.log(e.target.value)
+    })
+    
+   
+}
+
+function mostrar(data) {
+    cards.innerHTML=""
     data.forEach(producto => {
         templateCard.querySelector("h5").textContent = producto.nombre
         templateCard.querySelector(".p").textContent = producto.precio
@@ -109,19 +160,9 @@ const imagenCards = data => {
         fragment.appendChild(clone)
     })
     cards.appendChild(fragment)
-
     showAndHide(cards)
 }
-
-// function mouseEnter(e) {
-//     console.log(e.target)
-// }
-//   function mouseLeave(e) {
-//       console.log(e.target)
-//     e.target.style.display = "none";
-//   }
-// cards.addEventListener("mouseenter", mouseEnter)
-//   cards.addEventListener("mouseleave", mouseLeave) 
+ 
 
 
 //////////////BOTON AGREGAR AL CARRITO///////////////
