@@ -51,6 +51,7 @@ const imagenCards = data => {
     data.forEach(producto => {
         templateCard.querySelector("h5").textContent = producto.nombre
         templateCard.querySelector(".p").textContent = producto.precio
+        templateCard.querySelector(".cardDescripcion").textContent = producto.descripcion
         templateCard.querySelector("img").setAttribute("src", producto.imagen)
         templateCard.querySelector(".btn-primary").dataset.id = producto._id
         templateCard.querySelector(".stock").textContent = producto.stock
