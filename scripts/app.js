@@ -12,7 +12,7 @@ const select = document.getElementById("select-precio")
 // inicio sequencia de identificacion de paginas
 let url = window.document.URL
 // buscar coincidencias con regExp
-let reg = /\w{5,8}/g // numeros de caracteres: index = 5, contacto & farmacia & juguetes = 8
+let reg = /\b[index|contacto|farmacia|juguetes]+\b/g // numeros de caracteres: index = 5, contacto & farmacia & juguetes = 8
 // obtener la pagina actual
 let page = url.match(reg) // resultado/output: se identificara la pagina que coincida con el patron del regExp
 let currentPage = page[0]
@@ -369,7 +369,7 @@ const verifyEmail = (e, inputsValue) => {
 
 const formFunctions = () => {
     const btnSubmit = document.getElementById("btn-contacto")
-    btnSubmit.disabled = false;
+    /* btnSubmit.disabled = true; */
 
     let inputsValue = {
         nombre: "",
