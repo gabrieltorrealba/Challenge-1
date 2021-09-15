@@ -115,8 +115,31 @@ fetch("https://apipetshop.herokuapp.com/api/articulos")
 
 ////////////FUNCION PARA PINTAR CARDS//////////////////////
 const imagenCards = data => {
-    select.addEventListener("change", (e) => {
-
+    data.forEach(producto => {
+        templateCard.querySelector("h5").textContent = producto.nombre
+        templateCard.querySelector(".p").textContent = producto.precio
+        templateCard.querySelector(".cardDescripcion").textContent = producto.descripcion
+        templateCard.querySelector("img").setAttribute("src", producto.imagen)
+        templateCard.querySelector(".btn-primary").dataset.id = producto._id
+        templateCard.querySelector(".stock").textContent = producto.stock
+        const clone = templateCard.cloneNode(true)
+        fragment.appendChild(clone)
+    })
+    cards.appendChild(fragment)
+    showAndHide(cards)
+    select.addEventListener("change", (e)=>{
+        if (e.target.value === "todos") {
+            data = data.sort((a,b)=>{
+                if (a._id < b._id) {
+                  return -1  
+                }
+                if (a._id > b._id) {
+                    return 1  
+                  } return 0
+            })
+            mostrar(data)
+        }
+        
         if (e.target.value === "menor") {
             console.log(data)
             data = data.sort((a, b) => {
@@ -247,6 +270,12 @@ const mostrarFooter = () => {
 }
 
 
+/* var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+ */
+
 // Brian Cuenca js call functions start
 
 function showAndHide(div) {
@@ -339,7 +368,7 @@ const verifyEmail = (e, inputsValue) => {
 
 const formFunctions = () => {
     const btnSubmit = document.getElementById("btn-contacto")
-    btnSubmit.disabled = true;
+    /* btnSubmit.disabled = true; */
 
     let inputsValue = {
         nombre: "",
