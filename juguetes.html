@@ -10,42 +10,50 @@
     <link rel="shortcut icon" href="./assest/favicon.png">
 </head>
 <body id ="juguetes" class="container-fluid">
-    <header class="row col-12 container-fluid justify-content-center align-items-center">
-        <img src="./assest/logo_dog.png" alt="logo" class="col-3 col-lg-1">
-        <h1 class="col-6 col-lg-4"><span>Franco</span> Pet-Shop</h1>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
-                  </li>
+  <header class="row col-12 container-fluid justify-content-center align-items-center">
+    <img src="./assest/logo_dog.png" alt="logo" class="col-3 col-lg-1">
+    <img src="./assest/logotipo.png" id="logfarmacia" alt="">
+    <div class="icons">
+      <!-- Luz: Agregue los iconos -->
+      <div><i class="bi bi-instagram"></i></div>
+      <div><i class="bi bi-facebook"></i></div>
+      <div> <i class="bi bi-twitter"></i></div>
+    </div>
+    <!-- <h1 class="col-6 col-lg-4"><span>Franco</span> Pet-Shop</h1> -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+            </li>
 
-                  <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Secciones
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="farmacia.html">Farmacia</a></li>
-                      <li><a class="dropdown-item active" href="#">Juguetes</a></li>
-                    </ul>
-                  </li>
-                  
-                  <li class="nav-item">
-                    <a class="nav-link" href="contacto.html">Contactenos</a>
-                  </li>
-                </ul>
-                <!-- BOTON CARRITO -->
-                <button type="button" class="btn btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                  <img id="carrito" src="./assest/carrito.png" alt="carrito"><span class="badge bg-danger">0</span>
-                </button>
-              </div>
-            </div>
-          </nav>
-    </header>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Tienda
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="farmacia.html">Farmacia</a></li>
+                <li><a class="dropdown-item" href="#">Juguetes</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacto.html">Contactenos</a>
+            </li>
+          </ul>
+          <!-- BOTON CARRITO -->
+          <button type="button" class="btn btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+            <img id="carrito" src="./assest/carrito.png" alt="carrito"> <span class="badge bg-danger">0</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
     <main class="row">
       <main id="app" class="row">
         <div class="container" id="container1">
@@ -119,12 +127,8 @@
                   <img src="" alt="" class="card-img-top align-self-center" style="height: 8rem; width: 8rem;">
                   <div class="card-body">
                     <h5>Titulo</h5>
-<<<<<<< HEAD
                     <p class="cardDescripcion"></p>
                     <p class="cardTemple">Precio: $<span class="p"> Precio</span></p>
-=======
-                    <p class="cardTemple">Precio: <i class="ispan">$</i><span class="p"> Precio</span></p>
->>>>>>> 51cc26edff4fa39b21b53fa9b216625648aaf312
                     <p class="cardTemple">Stock: <span class="stock">1</span> <span class="unidades">Unidades disponibles</span> </p>
                     <button class="btn btn-primary col-12">Añadir al carrito</button>
                   </div>
