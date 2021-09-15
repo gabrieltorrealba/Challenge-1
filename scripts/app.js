@@ -60,7 +60,15 @@ const imagenCards = data => {
     })
     cards.appendChild(fragment)
 }
-
+/* function mouseEnter() {
+    document.querySelector(".cardDescripcion").style.display = "";
+  }
+  function mouseLeave(e) {
+      console.log(e.target)
+    e.target.style.display = "none";
+  }
+  cards.addEventListener("mouseenter", mouseEnter)
+  cards.addEventListener("mouseleave", mouseLeave) */
 
 //////////////BOTON AGREGAR AL CARRITO///////////////
 const agregarAlCarrito = e => {
