@@ -6,6 +6,56 @@ const juguetesPaginas = document.getElementById("juguetes")
 const form = document.querySelector("form")
 const btnContacto = document.getElementById("staticBackdropcontacto")
 
+// Brian cuenca js start
+
+// inicio sequencia de identificacion de paginas
+let url = window.document.URL
+// buscar coincidencias con regExp
+let reg = /\w{5,8}/g // numeros de caracteres: index = 5, contacto & farmacia & juguetes = 8
+// obtener la pagina actual
+let page = url.match(reg) // resultado/output: se identificara la pagina que coincida con el patron del regExp
+let currentPage = page[0]
+
+// funciones para cada pagina
+const indexFunctions = () => {
+    const image = document.getElementById("image");
+    let dirImg = ["../img/bunny.jpg", "../img/cat-1.jpg", "../img/dog-1.jpg", "../img/dog-2.jpg", "../img/cat-2.jpg"]
+
+    let i = 0;
+    image.style.backgroundImage = `url("${dirImg[i]}")`;
+    image.style.backgroundSize = "cover";
+    image.style.backgroundPosition = "center";
+    image.style.transition = "all 1s ease";
+
+    setInterval(() => {
+        i++
+        if (i === dirImg.length - 1) {
+            i = 0
+        }
+        image.style.backgroundImage = `url("${dirImg[i]}")`;
+
+        switch (i) {
+            case 0:
+                image.style.backgroundPosition = "center"
+                break;
+            case 1:
+                image.style.backgroundPosition = "center -400px"
+                break;
+            case 2:
+                image.style.backgroundPosition = "center -200px"
+                break;
+            case 3:
+                image.style.backgroundPosition = "center"
+                break;
+            case 4:
+                image.style.backgroundPosition = "center -100px"
+                break;
+        }
+    }, 5000);
+}
+
+// Brian Cuenca js end
+
 let templateCard = ""
 
 farmaciaPagina ? templateCard = document.getElementById("template-card").content : juguetesPaginas ? templateCard = document.getElementById("template-card").content : null
@@ -51,6 +101,7 @@ const imagenCards = data => {
     data.forEach(producto => {
         templateCard.querySelector("h5").textContent = producto.nombre
         templateCard.querySelector(".p").textContent = producto.precio
+        templateCard.querySelector(".cardDescripcion").textContent = producto.descripcion
         templateCard.querySelector("img").setAttribute("src", producto.imagen)
         templateCard.querySelector(".btn-primary").dataset.id = producto._id
         templateCard.querySelector(".stock").textContent = producto.stock
@@ -59,7 +110,15 @@ const imagenCards = data => {
     })
     cards.appendChild(fragment)
 }
-
+/* function mouseEnter() {
+    document.querySelector(".cardDescripcion").style.display = "";
+  }
+  function mouseLeave(e) {
+      console.log(e.target)
+    e.target.style.display = "none";
+  }
+  cards.addEventListener("mouseenter", mouseEnter)
+  cards.addEventListener("mouseleave", mouseLeave) */
 
 //////////////BOTON AGREGAR AL CARRITO///////////////
 const agregarAlCarrito = e => {
@@ -142,7 +201,23 @@ const mostrarFooter = () => {
     })
 }
 /////////////////EVENTO SUBMIT//////////////
-form.addEventListener('submit', (e) => {
-    e.preventDefault()
-})
+const formFunctions = () => {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault()
+    })
+}
+
+// Brian Cuenca js call functions start
+
+// se inicia condicionales para las direcciones
+switch (currentPage) {
+    case "index":
+        indexFunctions()
+        break;
+    case "contacto":
+        formFunctions()
+        break;
+}
+
+// Brian Cuenca call functions end
 
