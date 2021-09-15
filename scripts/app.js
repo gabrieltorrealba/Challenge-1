@@ -109,16 +109,20 @@ const imagenCards = data => {
         fragment.appendChild(clone)
     })
     cards.appendChild(fragment)
+
+    showAndHide(cards)
 }
-/* function mouseEnter() {
-    document.querySelector(".cardDescripcion").style.display = "";
-  }
-  function mouseLeave(e) {
-      console.log(e.target)
-    e.target.style.display = "none";
-  }
-  cards.addEventListener("mouseenter", mouseEnter)
-  cards.addEventListener("mouseleave", mouseLeave) */
+
+// function mouseEnter(e) {
+//     console.log(e.target)
+// }
+//   function mouseLeave(e) {
+//       console.log(e.target)
+//     e.target.style.display = "none";
+//   }
+// cards.addEventListener("mouseenter", mouseEnter)
+//   cards.addEventListener("mouseleave", mouseLeave) 
+
 
 //////////////BOTON AGREGAR AL CARRITO///////////////
 const agregarAlCarrito = e => {
@@ -209,6 +213,20 @@ const formFunctions = () => {
 
 // Brian Cuenca js call functions start
 
+function showAndHide(div) {
+    let child = div.querySelectorAll("#cardsVenta")
+    child.forEach(c => {
+        c.addEventListener("mouseenter", (e) => {
+            let classHided = e.target.querySelector(".cardDescripcion")
+            classHided.style.display = "block"
+        })
+
+        c.addEventListener("mouseleave", (e) => {
+            let classHided = e.target.querySelector(".cardDescripcion")
+            classHided.style.display = "none"
+        })
+    })
+}
 // se inicia condicionales para las direcciones
 switch (currentPage) {
     case "index":
