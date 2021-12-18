@@ -51,6 +51,7 @@ nav.navbar{
     padding: 100px 0px 0px 0px !important;    
     width: 100% !important;
     margin: 0 !important;
+    overflow: hidden;
    /*  min-height: 70vh; */
 } 
 
@@ -341,6 +342,7 @@ p{
      justify-content: center;
      align-items: center;
      flex-basis: 100%;
+     overflow: hidden;
  }
  .quienes-somos p{
      text-align: left;
@@ -397,6 +399,16 @@ p{
 }
 p.texto{
     text-indent: 2.5rem;
+}
+#image{
+    min-width: 100%;
+}
+.carousel-item{
+    overflow: hidden;
+}
+.carousel-item > img{
+    min-width: 98vw;
+    overflow: hidden;
 }
 /* Brian Cuenca styles start */
 

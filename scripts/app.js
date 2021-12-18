@@ -18,9 +18,9 @@ let page = url.match(reg) // resultado/output: se identificara la pagina que coi
 let currentPage = page[4]
 
 // funciones para cada pagina
-const indexFunctions = () => {
+/*const indexFunctions = () => {
     const image = document.getElementById("image");
-    let dirImg = ["../assest/bunny.jpg", "../assest/cat-1.jpg", "../assest/dog-1.jpg", "../assest/dog-2.jpg", "../assest/cat-2.jpg"]
+    let dirImg = ["../assest/bunny.jpg", "../assest/cat-1.jpg", "../assest/dog-1.jpg", "./assest/dog-2.jpg", "../assest/cat-2.jpg"]
 
     let i = 0;
     image.style.backgroundImage = `url("${dirImg[i]}")`;
@@ -54,7 +54,7 @@ const indexFunctions = () => {
                 break;
         }
     }, 5000);
-}
+}*/
 
 // Brian Cuenca js end
 
@@ -108,6 +108,7 @@ const imagenCards = data => {
         templateCard.querySelector("h5").textContent = producto.nombre
         templateCard.querySelector(".p").textContent = producto.precio
         templateCard.querySelector(".cardDescripcion").textContent = producto.descripcion
+        templateCard.querySelectorAll(".ultimas").innerHTML=
         templateCard.querySelector("img").setAttribute("src", producto.imagen)
         templateCard.querySelector(".btn-primary").dataset.id = producto._id
         templateCard.querySelector(".stock").textContent = producto.stock
