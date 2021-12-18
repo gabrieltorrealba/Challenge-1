@@ -9,7 +9,39 @@ const select = document.getElementById("select-precio")
 
 // Brian cuenca js start
 
+// inicio sequencia de identificacion de paginas
+let url = window.document.URL
+// buscar coincidencias con regExp
+let reg = /\/$|[index|contacto|farmacia|juguetes]+\b/g // encontrara una coincidencia con el patron para identificar el objetivo
+// obtener la pagina actual
+let page = url.match(reg) // resultado/output: se identificara la pagina que coincida con el patron del regExp
+let currentPage = page[4]
 
+// funciones para cada pagina
+const indexFunctions = () => {
+    
+
+    setInterval(() => {
+       
+        switch (i) {
+            case 0:
+                image.style.backgroundPosition = "center"
+                break;
+            case 1:
+                image.style.backgroundPosition = "center -400px"
+                break;
+            case 2:
+                image.style.backgroundPosition = "center -200px"
+                break;
+            case 3:
+                image.style.backgroundPosition = "center"
+                break;
+            case 4:
+                image.style.backgroundPosition = "center -100px"
+                break;
+        }
+    }, 5000);
+}
 
 // Brian Cuenca js end
 
