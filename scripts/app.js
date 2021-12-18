@@ -371,7 +371,7 @@ const formFunctions = () => {
     })
 }
 
-// se inicia condicionales para las direcciones
+/* // se inicia condicionales para las direcciones
 switch (currentPage) {
     case "index":
         indexFunctions()
@@ -382,7 +382,7 @@ switch (currentPage) {
     case "contacto":
         formFunctions()
         break;
-}
+} */
 
 // Brian Cuenca call functions end
 
